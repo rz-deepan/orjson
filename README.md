@@ -1226,5 +1226,6 @@ tests should be run as part of the build. It can be run with
 
 ## License
 
+
 orjson was written by ijl <<ijl@mailbox.org>>, copyright 2018 - 2024, available
 to you under either the Apache 2 license or MIT license at your choice.
