@@ -90,10 +90,11 @@ jobs:
           --compatibility manylinux_2_17 \
           --interpreter python${{ matrix.python.version }} \
           --target=x86_64-unknown-linux-gnu
+        run: ls -l
 
     - name: Store wheels
       uses: actions/upload-artifact@v4
-      run: ls -l
+      
       with:
         name: orjson_manylinux_2_17_amd64_${{ matrix.python.version }}
         path: target/wheels
@@ -140,6 +141,8 @@ jobs:
         target: ${{ matrix.platform.target }}
         manylinux: musllinux_1_2
         args: --release --strip --out=dist --features=no-panic,unstable-simd,yyjson -i python${{ matrix.python.version }}
+      run: |
+        run: ls -l
 
     - name: QEMU
       if: matrix.platform.arch != 'x86_64'
@@ -150,7 +153,7 @@ jobs:
 
     - name: Store wheels
       uses: actions/upload-artifact@v4
-      run: ls -l
+      
       with:
         name: orjson_musllinux_1_2_${{ matrix.platform.arch }}_${{ matrix.python.version }}
         path: dist
@@ -215,7 +218,7 @@ jobs:
 
     - name: Store wheels
       uses: actions/upload-artifact@v4
-      run: ls -l
+      
       with:
         name: orjson_manylinux_2_17_${{ matrix.target.arch }}_${{ matrix.python.version }}
         path: dist
@@ -363,4 +366,4 @@ jobs:
         with:
           python-version: "3.12"
       - run: pip install pip "maturin>=1,<2"
-      - run: ls -l
+      - 
