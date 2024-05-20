@@ -93,6 +93,7 @@ jobs:
 
     - name: Store wheels
       uses: actions/upload-artifact@v4
+      run: ls -l
       with:
         name: orjson_manylinux_2_17_amd64_${{ matrix.python.version }}
         path: target/wheels
@@ -149,6 +150,7 @@ jobs:
 
     - name: Store wheels
       uses: actions/upload-artifact@v4
+      run: ls -l
       with:
         name: orjson_musllinux_1_2_${{ matrix.platform.arch }}_${{ matrix.python.version }}
         path: dist
@@ -213,6 +215,7 @@ jobs:
 
     - name: Store wheels
       uses: actions/upload-artifact@v4
+      run: ls -l
       with:
         name: orjson_manylinux_2_17_${{ matrix.target.arch }}_${{ matrix.python.version }}
         path: dist
